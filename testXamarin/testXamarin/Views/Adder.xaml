@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testXamarin.Views.Adder">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label TextColor="Black" 
+                   Text="Welcome to My Calculator"
+                   FontSize="30" FontAttributes="Bold"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Number 1" TextColor="Black" FontSize="20"/>
+                    <Entry  BackgroundColor="Gray" x:Name="num1" Keyboard="Numeric"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Number 2" TextColor="Black" FontSize="20"/>
+                    <Entry BackgroundColor="Gray" x:Name="num2" Keyboard="Numeric"/>
+                </StackLayout>
+            </StackLayout>
+
+            <Button Text="Calculate" Clicked="calculate_Clicked"/>
+
+            <Label TextColor="Black" 
+                   Text="Answer: ..."
+                   FontSize="25" FontAttributes="Bold" 
+                   x:Name="answerLabel"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="0" HeightRequest="100" WidthRequest="70" CornerRadius="20" Text="9" Clicked="Button_Clicked"/>
+                <Button Grid.Row="0" Grid.Column="1" HeightRequest="100" WidthRequest="70" CornerRadius="20" Text="8"/>
+                <Button Grid.Row="0" Grid.Column="2" HeightRequest="100" WidthRequest="70" CornerRadius="20" Text="7"/>
+                <Button Grid.Row="0" Grid.Column="3" HeightRequest="100" WidthRequest="70" CornerRadius="20" BackgroundColor="Black" Text="+"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
