@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testXamarin.Views.TodoApi">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="15">
+            <Label Text="Obinna's TODO" TextColor="Black" 
+                   FontSize="30" FontAttributes="Bold"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand" />
+
+            <Frame CornerRadius="10" BorderColor="#05C4F8">
+                <StackLayout>
+                    <Editor x:Name="txtTodoText" BackgroundColor="#eee" Placeholder="Enter todo item" PlaceholderColor="#05C4F8" TextColor="Black" FontSize="20" HeightRequest="60"/>
+                    <TimePicker x:Name="txtTime" BackgroundColor="#eee" TextColor="#05C4F8"/>
+                    <Button Text="Submit" Clicked="btnSubmitTodo_Clicked"/>
+                    <Button Text="Submit" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </Frame>
+
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout BindableLayout.ItemsSource="{Binding AllTodo}" 
+                         BindableLayout.EmptyView="Nothing todo.">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#05C4F8" CornerRadius="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox VerticalOptions="CenterAndExpand" IsChecked="{Binding Done}"/>
+                                    <StackLayout>
+                                        <Label Text="{Binding TodoText}" TextColor="Black" FontSize="18"/>
+                                        <Label Text="{Binding TodoTime}" TextColor="Gray"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
