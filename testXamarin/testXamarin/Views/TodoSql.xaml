@@ -14,7 +14,6 @@
                     <Editor x:Name="txtTodoText" BackgroundColor="#eee" Placeholder="Enter todo item" PlaceholderColor="#05C4F8" TextColor="Black" FontSize="20" HeightRequest="60"/>
                     <TimePicker x:Name="txtTime" BackgroundColor="#eee" TextColor="#05C4F8"/>
                     <Button Text="Submit" Clicked="btnSubmitTodo_Clicked"/>
-                    <Button Text="Submit" Clicked="Button_Clicked"/>
                 </StackLayout>
             </Frame>
             

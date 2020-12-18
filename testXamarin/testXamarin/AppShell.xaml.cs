@@ -15,6 +15,7 @@ namespace testXamarin
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute("Calc", typeof(Adder));
             Routing.RegisterRoute("Todosql", typeof(TodoSql));
+            Routing.RegisterRoute("TodoApi", typeof(TodoApi));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

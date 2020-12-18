@@ -55,6 +55,10 @@
                         Clicked="btnTodoSql_Clicked"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Open Todo Sql"
+                        Clicked="Button_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
             </StackLayout>
         </ScrollView>
     </Grid>

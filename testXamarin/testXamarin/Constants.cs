@@ -28,8 +28,9 @@ namespace testXamarin
             }
         }
 
-        public const string BASE_URL = "https://53be0529c14f.ngrok.io";
+        public const string BASE_URL = "https://f540b0d780ae.ngrok.io";
         public const string ADD_TODO_URL = BASE_URL + "/api/Todo";
+        public const string LOGIN_URL = BASE_URL + "/Login";
         public const string ALL_TODO_URL = BASE_URL + "/api/Todo/GetMyTodos";
     }
 }
