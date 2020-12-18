@@ -31,25 +31,32 @@ namespace testXamarin.Views
         {
             base.OnAppearing();
 
+            Task.Run(async ()=> {
 
-            var data = await ApiService.GetAllTodos();
-            if (data.Any())
-            {
-                AllTodo = new ObservableCollection<Todo>((data).Select(x => new Todo
-                {
-                    Done = x.IsDone,
-                    Id = x.Id,
-                    TodoText = x.TodoDescription,
-                    TodoTime = x.TodoTime
-                }));
-                foreach (var item in AllTodo)
-                {
-                    item.PropertyChanged += OnItemPropertyChanged;
-                }
+                var data = await ApiService.GetAllTodos();
 
-                AllTodo.CollectionChanged += AllTodo_CollectionChanged;
-            }
-           
+                Device.BeginInvokeOnMainThread(() => {
+
+                    if (data.Any())
+                    {
+                        AllTodo = new ObservableCollection<Todo>((data).Select(x => new Todo
+                        {
+                            Done = x.IsDone,
+                            Id = x.Id,
+                            TodoText = x.TodoDescription,
+                            TodoTime = x.TodoTime
+                        }));
+                        foreach (var item in AllTodo)
+                        {
+                            item.PropertyChanged += OnItemPropertyChanged;
+                        }
+
+                        AllTodo.CollectionChanged += AllTodo_CollectionChanged;
+                    }
+
+                });
+
+            });
 
             
 
