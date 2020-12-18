@@ -27,9 +27,13 @@ namespace testXamarin.Views
             ApiService = new ApiService();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            AllTodo = new ObservableCollection<Todo>();
+            AllTodo.CollectionChanged += AllTodo_CollectionChanged;
+            BindingContext = this;
 
             Task.Run(async ()=> {
 
@@ -39,28 +43,26 @@ namespace testXamarin.Views
 
                     if (data.Any())
                     {
-                        AllTodo = new ObservableCollection<Todo>((data).Select(x => new Todo
+                        var todos = ((data).Select(x => new Todo
                         {
                             Done = x.IsDone,
                             Id = x.Id,
                             TodoText = x.TodoDescription,
                             TodoTime = x.TodoTime
                         }));
-                        foreach (var item in AllTodo)
+
+                        foreach (var item in todos)
                         {
-                            item.PropertyChanged += OnItemPropertyChanged;
+                            //item.PropertyChanged += OnItemPropertyChanged;
+                            AllTodo.Add(item);
+
                         }
 
-                        AllTodo.CollectionChanged += AllTodo_CollectionChanged;
                     }
 
                 });
 
             });
-
-            
-
-            BindingContext = this;
         }
 
         private void AllTodo_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
